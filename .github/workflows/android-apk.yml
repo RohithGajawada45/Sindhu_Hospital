@@ -21,7 +21,10 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      - uses: android-actions/setup-android@v3
+      # The runner image already ships the Android SDK; just accept licenses so Gradle can
+      # fetch any missing platform/build-tools. (setup-android@v3 fails: 'tools' package is gone.)
+      - name: Accept Android SDK licenses
+        run: yes | "${ANDROID_HOME:-$ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
 
       - name: Install dependencies
         run: npm ci
