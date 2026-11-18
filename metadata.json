@@ -1,0 +1,8 @@
+{
+  "name": "Sindhu Hospitals",
+  "description": "Calm, trustworthy patient companion for Sindhu Hospitals (HITEC City, Hyderabad) — appointments, oncology & haemato-oncology lab reports, prescriptions, and billing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

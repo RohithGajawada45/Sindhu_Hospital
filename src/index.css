@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Manrope', 'Noto Sans Telugu', 'Noto Sans Devanagari', system-ui, -apple-system, sans-serif;
+    --bg-canvas: #FAF8F4;
+    --bg-sand: #EFE7DA;
+    --bg-card: #FFFFFF;
+    --ink-primary: #1D2A2A;
+    --ink-secondary: #526060;
+    --teal-primary: #0F5C5A;
+    --teal-hover: #0B4745;
+    --coral-sos: #E5533D;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    color: var(--ink-primary);
+    background-color: #F1ECE2;
+    font-size: 16px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html.large-text {
+    font-size: 18px;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    overscroll-behavior-y: none;
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #EFE7DA 25%, #F7F3EC 50%, #EFE7DA 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes sheetSlideUp {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-sheet-up {
+  animation: sheetSlideUp 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-shimmer {
+    animation: none;
+  }
+  .animate-sheet-up {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hide scrollbars cleanly for horizontal date/chip strips while keeping scrollability */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
